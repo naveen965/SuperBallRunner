@@ -1,0 +1,17 @@
+<?xml version='1.0' ?>
+<data>
+     <globle>
+		 <sandbox>0</sandbox>
+		 <token>0BaohbwEdYIGbdyie7NPtjaDtPiNVBQ8Lf7oC00lEWaf1xHv0B2gsvA4XJHX</token>
+		 <id>215248976</id>
+		 <usercall>https://sandbox.gamepvt.com/api/v1/user</usercall>
+		 <hiscorecall>https://sandbox.gamepvt/api/v1/games/215248976/highscores</hiscorecall>
+		 <scorecall>https://sandbox.gamepvt/api/v1/save/score</scorecall>
+		 <suggestcall>https://sandbox.gamepvt/api/v1/suggest-games/215248976</suggestcall>
+		 <key>0</key>
+		 <fortarcpoints>https://sandbox.gamepvt/api/v1/get-user-points</fortarcpoints>
+		 <addbonuspoints>https://sandbox.gamepvt/api/v1/add-bonus-points</addbonuspoints>
+		 <checkbonuspoints>https://sandbox.gamepvt/api/v1/check-bonus-points</checkbonuspoints>
+		 <getvideoad>https://sandbox.gamepvt/api/v1/get-advertisements/VDA789421307</getvideoad>
+	</globle>
+</data>
