@@ -51,7 +51,7 @@ public class TileManager : MonoBehaviour
         Transform[] segmentWaypoints = roadSegment.GetComponentsInChildren<Transform>();
         foreach (Transform waypoint in segmentWaypoints)
         {
-            if (waypoint != roadSegment.transform)
+            if (waypoint != roadSegment.transform && waypoint.CompareTag("waypoint"))
             {
                 waypoints.Add(waypoint);
             }
@@ -60,7 +60,10 @@ public class TileManager : MonoBehaviour
 
     public List<Transform> GetWaypoints()
     {
-        CreateWaypoints(tilePrefabs[0]);
+        for(int i = 0; i < tilePrefabs.Length; i++)
+        {
+            CreateWaypoints(tilePrefabs[i]);
+        }
         return waypoints;
     }
 }
