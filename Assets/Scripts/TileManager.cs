@@ -38,6 +38,7 @@ public class TileManager : MonoBehaviour
         GameObject gameObject = Instantiate(tilePrefabs[tileIndex], transform.forward * zSpawn, transform.rotation);
         activeTiles.Add(gameObject);
         zSpawn += tileLength;
+        GetWaypoints();
     }
 
     private void DeleteTile()
@@ -60,10 +61,7 @@ public class TileManager : MonoBehaviour
 
     public List<Transform> GetWaypoints()
     {
-        for(int i = 0; i < tilePrefabs.Length; i++)
-        {
-            CreateWaypoints(tilePrefabs[i]);
-        }
+        CreateWaypoints(tilePrefabs[0]);
         return waypoints;
     }
 }
