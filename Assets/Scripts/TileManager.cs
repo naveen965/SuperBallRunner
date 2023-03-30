@@ -10,7 +10,7 @@ public class TileManager : MonoBehaviour
     public List<GameObject> activeTiles = new List<GameObject>();
     public Transform playerTransform;
 
-    private List<Transform> waypoints = new List<Transform>();
+    private List<Animator> waypoints = new List<Animator>();
 
     void Start()
     {
@@ -38,7 +38,7 @@ public class TileManager : MonoBehaviour
         GameObject gameObject = Instantiate(tilePrefabs[tileIndex], transform.forward * zSpawn, transform.rotation);
         activeTiles.Add(gameObject);
         zSpawn += tileLength;
-        GetWaypoints();
+        //CreateWaypoints(tilePrefabs[tileIndex]);
     }
 
     private void DeleteTile()
@@ -47,7 +47,7 @@ public class TileManager : MonoBehaviour
         activeTiles.RemoveAt(0);
     }
 
-    private void CreateWaypoints(GameObject roadSegment)
+    /*private void CreateWaypoints(GameObject roadSegment)
     {
         Transform[] segmentWaypoints = roadSegment.GetComponentsInChildren<Transform>();
         foreach (Transform waypoint in segmentWaypoints)
@@ -61,7 +61,6 @@ public class TileManager : MonoBehaviour
 
     public List<Transform> GetWaypoints()
     {
-        CreateWaypoints(tilePrefabs[0]);
         return waypoints;
-    }
+    }*/
 }
