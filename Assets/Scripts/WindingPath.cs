@@ -10,6 +10,7 @@ public class WindingPath : MonoBehaviour
     public float minX = -5.0f;
     public float maxX = 5.0f;
     public float mouseSensitivity = 10.0f;
+    public float horizontalSmoothing = 0.1f;
 
     private int currentWaypoint = 0;
     private float targetX;
@@ -19,7 +20,7 @@ public class WindingPath : MonoBehaviour
         TileManager tileManager = FindObjectOfType<TileManager>();
         if (tileManager != null)
         {
-            waypoints = tileManager.GetWaypoints();
+            //waypoints = tileManager.GetWaypoints();
             Debug.Log("way points: " + waypoints.Count);
             transform.position = waypoints[0].position;
         }
@@ -38,23 +39,16 @@ public class WindingPath : MonoBehaviour
             if (transform.position == waypoints[currentWaypoint].position)
             {
                 currentWaypoint++;
-                //Debug.Log("current waypoint in if: " + currentWaypoint);
+                Debug.Log("current waypoint in if: " + currentWaypoint);
             }
         }
 
-        // Move left or right when the mouse button is held down
-        /*if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0))
         {
             float mouseX = Input.mousePosition.x / Screen.width * 2 - 1;
-            targetX = Mathf.Lerp(minX, maxX, (mouseX + 1) / 2);
+            float targetX = Mathf.Lerp(minX, maxX, (mouseX + 1) / 2);
+            float smoothedX = Mathf.Lerp(transform.position.x, targetX, horizontalSmoothing);
+            transform.position = new Vector3(smoothedX, transform.position.y, transform.position.z);
         }
-
-        float ballX = Mathf.Lerp(transform.position.x, targetX, sideSpeed * Time.deltaTime);
-        transform.position = new Vector3(ballX, transform.position.y, transform.position.z);
-*/
-        /*// Rotate the ball based on mouse movement
-        float mouseY = Input.GetAxis("Mouse Y");
-        float rotationAmount = mouseY * mouseSensitivity * Time.deltaTime;
-        transform.Rotate(Vector3.forward, rotationAmount);*/
     }
 }
