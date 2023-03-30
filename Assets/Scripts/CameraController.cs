@@ -11,6 +11,7 @@ public class CameraController : MonoBehaviour
     private Vector3 desiredPosition; // the desired position of the camera
     private Vector3 smoothedPosition; // the smoothed position of the camera
     private Quaternion lookRotation; // the desired rotation of the camera
+    private float fixedXRotation = 25f;
 
     void LateUpdate()
     {
@@ -22,7 +23,7 @@ public class CameraController : MonoBehaviour
         Vector3 lookDirection = target.position - transform.position;
         lookDirection.y = 0f;
         lookRotation = Quaternion.LookRotation(lookDirection);
+        lookRotation *= Quaternion.Euler(fixedXRotation, 0f, 0f);
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, smoothSpeed);
     }
 }
-
