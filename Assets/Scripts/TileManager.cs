@@ -6,11 +6,12 @@ public class TileManager : MonoBehaviour
 {
     public GameObject[] tilePrefabs;
     public float zSpawn = 0;
-    public float tileLength = 1300;
+    public float tileLength = 2600;
     public List<GameObject> activeTiles = new List<GameObject>();
     public Transform playerTransform;
 
-    private List<Animator> waypoints = new List<Animator>();
+    public List<Animator> animators = new List<Animator>();
+    //public List<Transform> waypoints = new List<Transform>();
 
     void Start()
     {
@@ -26,7 +27,7 @@ public class TileManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(playerTransform.position.z - 1305 > zSpawn - (tilePrefabs.Length * tileLength))
+        if (playerTransform.position.z - 1305 > zSpawn - (tilePrefabs.Length * tileLength))
         {
             SpawnTile(Random.Range(0, tilePrefabs.Length));
             DeleteTile();
@@ -39,15 +40,30 @@ public class TileManager : MonoBehaviour
         activeTiles.Add(gameObject);
         zSpawn += tileLength;
         //CreateWaypoints(tilePrefabs[tileIndex]);
+        SetAnimators(tilePrefabs[tileIndex]);
     }
 
     private void DeleteTile()
     {
         Destroy(activeTiles[0]);
         activeTiles.RemoveAt(0);
+        animators.RemoveAt(0);
     }
 
-    /*private void CreateWaypoints(GameObject roadSegment)
+    private void SetAnimators(GameObject pathSegment)
+    {
+        animators.Add(pathSegment.GetComponent<Animator>());
+    }
+
+    public List<Animator> GetAnimators()
+    {
+        return animators;
+    }
+
+
+    /*// This method use for set waypoints in active tiles.
+
+    private void CreateWaypoints(GameObject roadSegment)
     {
         Transform[] segmentWaypoints = roadSegment.GetComponentsInChildren<Transform>();
         foreach (Transform waypoint in segmentWaypoints)
@@ -58,6 +74,8 @@ public class TileManager : MonoBehaviour
             }
         }
     }
+
+    // This method use for get waypoints in active tiles.
 
     public List<Transform> GetWaypoints()
     {

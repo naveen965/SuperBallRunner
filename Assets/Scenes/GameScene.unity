@@ -8367,14 +8367,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilePrefabs:
-  - {fileID: 3324757915422160035, guid: af2604592d07e4e41a6b7dca2a670201, type: 3}
-  - {fileID: 5704427621884993670, guid: c6459a89357eaf04f89900810d0990fa, type: 3}
   - {fileID: 2631798489677540604, guid: 45ec7a7d81864d4499083b20765f979e, type: 3}
+  - {fileID: 5704427621884993670, guid: c6459a89357eaf04f89900810d0990fa, type: 3}
+  - {fileID: 3324757915422160035, guid: af2604592d07e4e41a6b7dca2a670201, type: 3}
   - {fileID: 2168100118879353844, guid: 3b1fdb911874898479b3fe56b7c23ec1, type: 3}
   zSpawn: 0
-  tileLength: 1300
+  tileLength: 2600
   activeTiles: []
   playerTransform: {fileID: 1778724982}
+  animators: []
 --- !u!1 &1196746937
 GameObject:
   m_ObjectHideFlags: 0
@@ -13632,6 +13633,7 @@ GameObject:
   - component: {fileID: 1778724983}
   - component: {fileID: 1778724987}
   - component: {fileID: 1778724986}
+  - component: {fileID: 1778724988}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -13725,7 +13727,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1057199b2e0dbe45a1e3f31bc4b1daa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints: []
   pathSpeed: 5
   sideSpeed: 10
   minX: -40
@@ -13748,6 +13749,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1778724988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778724981}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4442c83d17379d4898e0e6401570284, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  pathPoints: []
+  loop: 1
 --- !u!1 &1817188809
 GameObject:
   m_ObjectHideFlags: 0

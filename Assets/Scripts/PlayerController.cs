@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public List<Animator> waypoints;
     public float pathSpeed = 5.0f;
     public float sideSpeed = 10.0f;
     public float minX = -5.0f;
@@ -12,23 +11,46 @@ public class PlayerController : MonoBehaviour
     public float mouseSensitivity = 10.0f;
     public float horizontalSmoothing = 0.1f;
 
-    private int currentWaypoint = 0;
-    private float targetX;
+    private List<Animator> animators;
+    private string animatorName = "Rd03";
 
     void Start()
     {
         TileManager tileManager = FindObjectOfType<TileManager>();
         if (tileManager != null)
         {
-            //waypoints = tileManager.GetWaypoints();
-            Debug.Log("way points: " + waypoints.Count);
+            animators = tileManager.GetAnimators();
+            //Debug.Log("Animators count: " + animators.Count);
             //transform.position = waypoints[0].position;
         }
     }
 
     void Update()
     {
-        
+        // Get a reference to the animation clip
+        Animator rd01AnimationClip = animators[0].GetComponent<Animator>();
+
+        // Get the name of the animation clip
+        string rd01AnimationName = rd01AnimationClip.name;
+
+        //animatorName = animators[0].name;
+        //Debug.Log("animator name: " + rd01AnimationName);
+
+        if (animatorName == "Rd03")
+        {
+            animators[0].enabled = true;
+            animators[0].Play(animatorName, 0, 0f);
+        }
+
+        Animator firstAnimator = FindObjectOfType<TileManager>().activeTiles[0].GetComponent<Animator>();
+        if (firstAnimator != null)
+        {
+            float animLength = firstAnimator.GetCurrentAnimatorStateInfo(0).length;
+            if (Time.time - firstAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= animLength)
+            {
+                animators[0].enabled = false;
+            }
+        }
 
         if (Input.GetMouseButton(0))
         {
