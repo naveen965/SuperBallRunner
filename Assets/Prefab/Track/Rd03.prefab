@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2631798489677540605}
   - component: {fileID: 7172183564385254042}
+  - component: {fileID: 4170891771121952867}
   m_Layer: 0
   m_Name: Rd03
   m_TagString: path
@@ -40,7 +41,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2631798489677540604}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: bf844acb131145c4689a00b95583b29a, type: 2}
   m_CullingMode: 0
@@ -51,6 +52,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4170891771121952867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2631798489677540604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f2cde79b9d03734584af6c174a6134b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6316276342617819690
 GameObject:
   m_ObjectHideFlags: 0

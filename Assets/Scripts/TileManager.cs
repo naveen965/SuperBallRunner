@@ -9,29 +9,37 @@ public class TileManager : MonoBehaviour
     public float tileLength = 2600;
     public List<GameObject> activeTiles = new List<GameObject>();
     public Transform playerTransform;
-
     public List<Animator> animators = new List<Animator>();
     //public List<Transform> waypoints = new List<Transform>();
+    private float timeSinceLastSpawn = 0;
+    private float halfFirstAnimLength = 0;
 
     void Start()
     {
-        for (int i = 0; i < tilePrefabs.Length; i++)
-        {
-            if(i == 0)
-                SpawnTile(0);
-            else
-                SpawnTile(Random.Range(0, tilePrefabs.Length));
-        }
+        SpawnTile(0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (playerTransform.position.z - 1305 > zSpawn - (tilePrefabs.Length * tileLength))
+        /*Animator firstAnimator = activeTiles[0].GetComponent<Animator>();
+        if (firstAnimator != null)
         {
-            SpawnTile(Random.Range(0, tilePrefabs.Length));
-            DeleteTile();
+            float animLength = firstAnimator.GetCurrentAnimatorStateInfo(0).length;
+
+            if (timeSinceLastSpawn >= halfFirstAnimLength)
+            {
+                SpawnTile(Random.Range(0, tilePrefabs.Length));
+                timeSinceLastSpawn = 0;
+            }
+
+            if (Time.time - firstAnimator.GetCurrentAnimatorStateInfo(0).length >= animLength)
+            {
+                DeleteTile();
+            }
         }
+
+        timeSinceLastSpawn += Time.deltaTime;*/
     }
 
     public void SpawnTile(int tileIndex)
@@ -39,11 +47,19 @@ public class TileManager : MonoBehaviour
         GameObject gameObject = Instantiate(tilePrefabs[tileIndex], transform.forward * zSpawn, transform.rotation);
         activeTiles.Add(gameObject);
         zSpawn += tileLength;
-        //CreateWaypoints(tilePrefabs[tileIndex]);
         SetAnimators(tilePrefabs[tileIndex]);
+
+        if (activeTiles.Count == 1)
+        {
+            Animator firstAnimator = activeTiles[0].GetComponent<Animator>();
+            if (firstAnimator != null)
+            {
+                halfFirstAnimLength = firstAnimator.GetCurrentAnimatorStateInfo(0).length / 2;
+            }
+        }
     }
 
-    private void DeleteTile()
+    public void DeleteTile()
     {
         Destroy(activeTiles[0]);
         activeTiles.RemoveAt(0);
@@ -52,33 +68,11 @@ public class TileManager : MonoBehaviour
 
     private void SetAnimators(GameObject pathSegment)
     {
-        animators.Add(pathSegment.GetComponent<Animator>());
+        animators.Insert(0, pathSegment.GetComponent<Animator>());
     }
 
     public List<Animator> GetAnimators()
     {
         return animators;
     }
-
-
-    /*// This method use for set waypoints in active tiles.
-
-    private void CreateWaypoints(GameObject roadSegment)
-    {
-        Transform[] segmentWaypoints = roadSegment.GetComponentsInChildren<Transform>();
-        foreach (Transform waypoint in segmentWaypoints)
-        {
-            if (waypoint != roadSegment.transform && waypoint.CompareTag("waypoint"))
-            {
-                waypoints.Add(waypoint);
-            }
-        }
-    }
-
-    // This method use for get waypoints in active tiles.
-
-    public List<Transform> GetWaypoints()
-    {
-        return waypoints;
-    }*/
 }

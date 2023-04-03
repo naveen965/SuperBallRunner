@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour
         {
             animators[0].enabled = true;
             animators[0].Play(animatorName, 0, 0f);
+            animators[0].speed = 0.2f;
         }
 
         Animator firstAnimator = FindObjectOfType<TileManager>().activeTiles[0].GetComponent<Animator>();
@@ -48,7 +49,7 @@ public class PlayerController : MonoBehaviour
             float animLength = firstAnimator.GetCurrentAnimatorStateInfo(0).length;
             if (Time.time - firstAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= animLength)
             {
-                animators[0].enabled = false;
+                //animators[0].enabled = false;
             }
         }
 
