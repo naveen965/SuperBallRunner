@@ -4233,7 +4233,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 657677352}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -220}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1778724982}
@@ -4775,7 +4775,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 758109875}
   m_LocalRotation: {x: 0.21897098, y: -0, z: -0, w: 0.97573143}
-  m_LocalPosition: {x: 0, y: 118, z: -129}
+  m_LocalPosition: {x: 0, y: 113, z: -118}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 657677353}
@@ -4795,7 +4795,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1778724982}
   smoothSpeed: 0.1
-  offset: {x: 0, y: 120, z: -130}
+  offset: {x: 0, y: 113, z: -118}
 --- !u!20 &758109878
 Camera:
   m_ObjectHideFlags: 0
@@ -8367,9 +8367,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilePrefabs:
-  - {fileID: 3324757915422160035, guid: af2604592d07e4e41a6b7dca2a670201, type: 3}
-  - {fileID: 5704427621884993670, guid: c6459a89357eaf04f89900810d0990fa, type: 3}
   - {fileID: 2631798489677540604, guid: 45ec7a7d81864d4499083b20765f979e, type: 3}
+  - {fileID: 5704427621884993670, guid: c6459a89357eaf04f89900810d0990fa, type: 3}
+  - {fileID: 3324757915422160035, guid: af2604592d07e4e41a6b7dca2a670201, type: 3}
   - {fileID: 2168100118879353844, guid: 3b1fdb911874898479b3fe56b7c23ec1, type: 3}
   zSpawn: 0
   tileLength: 2600
