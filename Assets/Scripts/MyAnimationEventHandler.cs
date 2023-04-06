@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimationEvent : MonoBehaviour
+public class MyAnimationEventHandler : MonoBehaviour
 {
     public void MyTriggerFunction(string triggerName)
     {
-        Debug.Log("Trigger point one reached: " + triggerName);
+        Debug.Log("Trigger point reached: " + triggerName);
         // Do something in response to the trigger point being reached
         FindObjectOfType<TileManager>().SpawnTile(Random.Range(0, FindObjectOfType<TileManager>().tilePrefabs.Length));
     }

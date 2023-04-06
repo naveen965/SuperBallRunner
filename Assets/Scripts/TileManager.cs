@@ -45,6 +45,7 @@ public class TileManager : MonoBehaviour
     public void SpawnTile(int tileIndex)
     {
         GameObject gameObject = Instantiate(tilePrefabs[tileIndex], transform.forward * zSpawn, transform.rotation);
+
         activeTiles.Add(gameObject);
         zSpawn += tileLength;
         SetAnimators(tilePrefabs[tileIndex]);
