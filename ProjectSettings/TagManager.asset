@@ -3,7 +3,17 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - path
+  - Enemy
+  - health
+  - sheld
+  - power
+  - coin
+  - waypoint
+  - SpawnPosition
+  - Ground
+  - Spawner
   layers:
   - Default
   - TransparentFX

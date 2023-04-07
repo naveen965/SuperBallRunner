@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        // Get a reference to the animation clip
+        /*// Get a reference to the animation clip
         Animator rd01AnimationClip = animators[0].GetComponent<Animator>();
 
         // Get the name of the animation clip
@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
             {
                 //animators[0].enabled = false;
             }
-        }
+        }*/
 
         if (Input.GetMouseButton(0))
         {
