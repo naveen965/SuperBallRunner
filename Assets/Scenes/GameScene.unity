@@ -7467,6 +7467,36 @@ RectTransform:
   m_AnchoredPosition: {x: -714, y: 247}
   m_SizeDelta: {x: 486.86377, y: 150.18384}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1114717725
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1114717726}
+  m_Layer: 0
+  m_Name: Path
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1114717726
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1114717725}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1118814332
 GameObject:
   m_ObjectHideFlags: 0
@@ -8367,15 +8397,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilePrefabs:
-  - {fileID: 2631798489677540604, guid: 45ec7a7d81864d4499083b20765f979e, type: 3}
-  - {fileID: 5704427621884993670, guid: c6459a89357eaf04f89900810d0990fa, type: 3}
-  - {fileID: 3324757915422160035, guid: af2604592d07e4e41a6b7dca2a670201, type: 3}
-  - {fileID: 2168100118879353844, guid: 3b1fdb911874898479b3fe56b7c23ec1, type: 3}
+  - {fileID: 7074644289484338117, guid: ca92f19f945a4b841afec558b6be5698, type: 3}
+  - {fileID: 3337317063803172423, guid: e7ab32a6d93328d40bcedf05c0ede3b6, type: 3}
+  - {fileID: 845934730833481946, guid: a67bec93f7d43be4383876a10d4de0e9, type: 3}
+  - {fileID: 6263626078238140297, guid: 5848289c60457074290d661c1a024aac, type: 3}
+  - {fileID: 7205527102307875418, guid: f7b0d1a86e2961f4895d347d9c777fe9, type: 3}
+  Path: {fileID: 1114717725}
   zSpawn: 0
-  tileLength: 2600
+  tileLength: 1300
   activeTiles: []
   playerTransform: {fileID: 1778724982}
   animators: []
+  waypoints: []
 --- !u!1 &1196746937
 GameObject:
   m_ObjectHideFlags: 0
@@ -13634,6 +13667,7 @@ GameObject:
   - component: {fileID: 1778724987}
   - component: {fileID: 1778724986}
   - component: {fileID: 1778724988}
+  - component: {fileID: 1778724989}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -13722,7 +13756,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1778724981}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1057199b2e0dbe45a1e3f31bc4b1daa, type: 3}
   m_Name: 
@@ -13770,6 +13804,25 @@ MonoBehaviour:
     m_RotationOrder: 4
   pathPoints: []
   loop: 1
+--- !u!114 &1778724989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778724981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ca62b19e389a749be8762ed892d089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints: []
+  pathSpeed: 100
+  sideSpeed: 10
+  minX: -50
+  maxX: 50
+  mouseSensitivity: 10
+  horizontalSmoothing: 0.1
 --- !u!1 &1817188809
 GameObject:
   m_ObjectHideFlags: 0

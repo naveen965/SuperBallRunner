@@ -20,9 +20,10 @@ public class WindingPath : MonoBehaviour
         TileManager tileManager = FindObjectOfType<TileManager>();
         if (tileManager != null)
         {
-            //waypoints = tileManager.GetWaypoints();
+            waypoints = tileManager.GetWaypoints();
             Debug.Log("way points: " + waypoints.Count);
-            transform.position = waypoints[0].position;
+            if (waypoints.Count > 0)
+                transform.position = waypoints[0].position;
         }
     }
 
@@ -30,6 +31,13 @@ public class WindingPath : MonoBehaviour
     {
         /*Debug.Log("current waypoint in update: " + currentWaypoint);
         Debug.Log("waypoints count:" + waypoints.Count);*/
+        TileManager tileManager = FindObjectOfType<TileManager>();
+
+        if (tileManager != null)
+        {
+            waypoints = FindObjectOfType<TileManager>().GetWaypoints();
+        }
+
         // Move along the winding path
         if (currentWaypoint < waypoints.Count)
         {
@@ -39,7 +47,7 @@ public class WindingPath : MonoBehaviour
             if (transform.position == waypoints[currentWaypoint].position)
             {
                 currentWaypoint++;
-                Debug.Log("current waypoint in if: " + currentWaypoint);
+                //Debug.Log("current waypoint in if: " + currentWaypoint);
             }
         }
 
