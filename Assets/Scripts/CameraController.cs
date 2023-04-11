@@ -19,7 +19,7 @@ public class CameraController : MonoBehaviour
         smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
         transform.position = smoothedPosition;
 
-        // Rotate the camera to follow the player's movement
+        // Rotate the camera to follow theo player's movement
         Vector3 lookDirection = target.position - transform.position;
         lookDirection.y = 0f;
         lookRotation = Quaternion.LookRotation(lookDirection);
