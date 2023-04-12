@@ -20,11 +20,14 @@ public class PathSpawnerPoint : MonoBehaviour
 
     private IEnumerator OnTriggerEnter(Collider other)
     {
+        TileManager tileManager = FindObjectOfType<TileManager>();
+
         if (other.name == "Ball")
         {
             randomNumber = Random.Range(0, FindObjectOfType<TileManager>().tilePrefabs.Length);
             Debug.Log("Colleced!");
             FindObjectOfType<TileManager>().SpawnTile(randomNumber);
+            //FindObjectOfType<WindingPath>().SetWindingPath(tileManager);
 
             // Wait for 3 seconds before deleting the tile
             yield return new WaitForSeconds(3f);
