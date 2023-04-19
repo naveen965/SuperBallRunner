@@ -23,3 +23,10 @@ public static class Bezier
             3f * t * t * (p3 - p2);
     }
 }
+
+public enum BezierControlPointMode
+{
+    Free,
+    Aligned,
+    Mirrored
+}
