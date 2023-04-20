@@ -5,7 +5,7 @@ public class ProceduralBezierCurve : MonoBehaviour
 
     // visualization variables
     public float start = 0f;
-    public float length = 5f;
+    public float length = 50f;
     public float speed = 0.01f;
 
     private int randomOffset = 0;
