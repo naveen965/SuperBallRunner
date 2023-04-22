@@ -153,18 +153,18 @@ MonoBehaviour:
   editorData:
     _bezierPath:
       points:
-      - {x: -4.350084, y: -0.6192361, z: 0.36958665}
-      - {x: -4.3119984, y: -0.27224493, z: 2.7627096}
-      - {x: -2.500093, y: 1.7315861, z: 2.2386506}
-      - {x: 0.14839771, y: 1.7105651, z: 2.2219813}
-      - {x: 2.7968912, y: 1.6895441, z: 2.205312}
-      - {x: 4.16408, y: -0.44785511, z: 2.1293974}
-      - {x: 4.3446193, y: -0.6192361, z: 0.36958665}
-      - {x: 4.5251584, y: -0.7906171, z: -1.390224}
-      - {x: 3.2920637, y: 0.7694727, z: -2.9261537}
-      - {x: 0.77272415, y: 0.83640313, z: -3.0503848}
-      - {x: -1.7466154, y: 0.90333354, z: -3.1746159}
-      - {x: -4.3881693, y: -0.9662273, z: -2.0235362}
+      - {x: -4.355811, y: -1.1434879, z: 1.0492778}
+      - {x: -4.3177257, y: -0.7964968, z: 3.442401}
+      - {x: -2.5058203, y: 1.2073343, z: 2.9183416}
+      - {x: 0.14267042, y: 1.1863132, z: 2.9016724}
+      - {x: 2.791164, y: 1.1652923, z: 2.885003}
+      - {x: 4.158353, y: -0.972107, z: 2.8090887}
+      - {x: 4.338892, y: -1.1434879, z: 1.0492778}
+      - {x: 4.519431, y: -1.3148689, z: -0.7105328}
+      - {x: 3.2863364, y: 0.24522084, z: -2.8309398}
+      - {x: 0.76699686, y: 0.31215125, z: -2.955171}
+      - {x: -1.7523427, y: 0.37908167, z: -3.079402}
+      - {x: -4.3938966, y: -1.4904792, z: -1.343845}
       isClosed: 1
       space: 0
       controlMode: 1
@@ -178,9 +178,9 @@ MonoBehaviour:
       - 0
       - 0
       - 0
-      globalNormalsAngle: 69
+      globalNormalsAngle: 90.2
       flipNormals: 0
-    vertexPathUpToDate: 1
+    vertexPathUpToDate: 0
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0
     showTransformTool: 1
@@ -190,7 +190,7 @@ MonoBehaviour:
     displayControlPoints: 1
     bezierHandleScale: 1
     globalDisplaySettingsFoldout: 0
-    keepConstantHandleSize: 0
+    keepConstantHandleSize: 1
     showNormalsInVertexMode: 0
     showBezierPathInVertexMode: 0
     showDisplayOptions: 1
@@ -209,7 +209,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 184727957}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.005727291, y: 0.5242519, z: -0.6796912}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

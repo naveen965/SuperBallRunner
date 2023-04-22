@@ -590,6 +590,7 @@ GameObject:
   - component: {fileID: 1172893121}
   - component: {fileID: 1172893120}
   - component: {fileID: 1172893119}
+  - component: {fileID: 1172893124}
   m_Layer: 0
   m_Name: Walker
   m_TagString: Untagged
@@ -604,7 +605,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1172893118}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3cbb10813bce273479a1b7aa4a1b7d77, type: 3}
   m_Name: 
@@ -687,6 +688,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1172893124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172893118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f26096e0f5830e48b30997705555172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  start: 0
+  length: 5
+  speed: 0.01
 --- !u!1 &1207119229
 GameObject:
   m_ObjectHideFlags: 0
