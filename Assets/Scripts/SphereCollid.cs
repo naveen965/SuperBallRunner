@@ -2,16 +2,39 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace PathCreation.Examples
+public class SphereCollid : MonoBehaviour
 {
-    public class SphereCollid : MonoBehaviour
+    // Start is called before the first frame update
+    void Start()
     {
-        private void OnTriggerEnter(Collider other)
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    /*private void OnTriggerEnter(Collider other)
+    {
+        TileManager tileManager = FindObjectOfType<TileManager>();
+
+        if (other.name == "3DBall")
         {
-            if (other.name == "Follower")
-            {
-                FindObjectOfType<GeneratePathExample>().isSpawn = true;
-            }
+            Debug.Log("Colleced!");
+        }
+    }*/
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.name == "3DBall")
+        {
+            int waypointIndex = FindObjectOfType<PathCreation.Examples.GeneratePathExample>().GetWaypoints().IndexOf(other.transform);
+
+            Debug.Log("waypointIndex: " + waypointIndex);
+
+            StartCoroutine(FindObjectOfType<PathCreation.Examples.GeneratePathExample>().spawnObj());
         }
     }
 }

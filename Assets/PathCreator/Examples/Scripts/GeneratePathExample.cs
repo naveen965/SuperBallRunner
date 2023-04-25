@@ -11,16 +11,23 @@ namespace PathCreation.Examples {
 
         public bool closedLoop = false;
         public bool isSpawn = false;
-        public float zSpawn = 0;
+        public float zSpawn = 0f;
         public float tileLength;
         public GameObject waypoint;
         public GameObject waypointsPerant;
+        public GameObject ball;
+        public float spawnRange = 10f;
 
         private List<Transform> waypoints = new List<Transform>();
 
         void Start () 
         {
             isSpawn = true;
+
+            for (int i = 0; i < 5; i++)
+            {
+                SpawnWaypoint();
+            }
 
             if (waypoints.Count > 0) {
                 // Create a new bezier path from the waypoints.
@@ -31,47 +38,86 @@ namespace PathCreation.Examples {
 
         void Update ()
         {
-            if (isSpawn == true)
-            {
-                StartCoroutine(spawnObj());
-            }
+            
         }
 
-        private IEnumerator spawnObj()
+        public IEnumerator spawnObj()
         {
             SpawnWaypoint();
-            yield return new WaitForSeconds(3f);
-            DeleteWaypoints();
-            isSpawn = false;
+
+            if (waypoints.Count > 0)
+            {
+                // Create a new bezier path from the waypoints.
+                BezierPath bezierPath = new BezierPath(waypoints, closedLoop, PathSpace.xyz);
+                GetComponent<PathCreator>().bezierPath = bezierPath;
+            }
+
+            yield return new WaitForSeconds(5f);
+
+            DeleteWaypoint(waypoints[0]);
         }
 
         public void SpawnWaypoint()
         {
-            //GameObject spawnPosition = GameObject.FindGameObjectWithTag("SpawnPosition");
+            float zPos = 0;
+            float xPos = 0;
+            float yPos = 0;
+            float randomNumber = Random.Range(-spawnRange, spawnRange);
 
-            GameObject gameObject = Instantiate(waypoint, transform.forward * zSpawn, transform.rotation);
+            int randomInt = Random.Range(0, 3);
 
-            gameObject.transform.SetParent(waypointsPerant.transform);
+            if (randomInt == 0)
+            {
+                zPos = transform.position.z + randomNumber + zSpawn;
+                xPos = transform.position.x;
+                yPos = transform.position.y;
+            }
+            else if (randomInt == 1)
+            {
+                zPos = transform.position.z + zSpawn;
+                xPos = transform.position.x + randomNumber;
+                yPos = transform.position.y;
+            }
+            else if (randomInt == 2)
+            {
+                zPos = transform.position.z + zSpawn;
+                xPos = transform.position.x;
+                yPos = transform.position.y + randomNumber;
+            }
 
-            SetWaypoints(gameObject.transform);
+            Vector3 spawnPos = new Vector3 (xPos, yPos, zPos);
+
+            GameObject newWaypoint = Instantiate(waypoint, spawnPos, transform.rotation);
+            newWaypoint.transform.SetParent(waypointsPerant.transform);
+
+            SetWaypoints(newWaypoint.transform);
 
             zSpawn += tileLength;
         }
+
 
         private void SetWaypoints(Transform waypoint)
         {
             waypoints.Add(waypoint);
         }
 
-        private void DeleteWaypoints()
+        public void DeleteWaypoint(Transform waypoint)
         {
-            foreach (Transform waypoint in waypoints)
+            // Remove the waypoint from the waypoints list
+            waypoints.Remove(waypoint);
+
+            // Destroy the waypoint object
+            Destroy(waypoint.gameObject);
+
+            // Rebuild the BezierPath object without the removed waypoint
+            if (waypoints.Count > 0)
             {
-                if (waypoint == waypoints[0] && waypoint.CompareTag("way"))
-                {
-                    waypoints.Remove(waypoint);
-                    Destroy(gameObject);
-                }
+                BezierPath bezierPath = new BezierPath(waypoints, closedLoop, PathSpace.xyz);
+                GetComponent<PathCreator>().bezierPath = bezierPath;
+            }
+            else
+            {
+                GetComponent<PathCreator>().bezierPath = null;
             }
         }
 
