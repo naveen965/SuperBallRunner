@@ -16,16 +16,6 @@ public class SphereCollid : MonoBehaviour
         
     }
 
-    /*private void OnTriggerEnter(Collider other)
-    {
-        TileManager tileManager = FindObjectOfType<TileManager>();
-
-        if (other.name == "3DBall")
-        {
-            Debug.Log("Colleced!");
-        }
-    }*/
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.name == "3DBall")
