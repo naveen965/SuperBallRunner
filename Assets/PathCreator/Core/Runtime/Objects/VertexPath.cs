@@ -37,6 +37,7 @@ namespace PathCreation {
         const float minVertexSpacing = .01f;
 
         Transform transform;
+        private BezierPath bezierPath;
 
         #endregion
 
@@ -147,6 +148,11 @@ namespace PathCreation {
                     }
                 }
             }
+        }
+
+        public VertexPath(BezierPath bezierPath)
+        {
+            this.bezierPath = bezierPath;
         }
 
         #endregion

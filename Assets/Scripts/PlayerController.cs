@@ -27,32 +27,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        /*// Get a reference to the animation clip
-        Animator rd01AnimationClip = animators[0].GetComponent<Animator>();
-
-        // Get the name of the animation clip
-        string rd01AnimationName = rd01AnimationClip.name;
-
-        //animatorName = animators[0].name;
-        //Debug.Log("animator name: " + rd01AnimationName);
-
-        if (animatorName == "Rd03")
-        {
-            animators[0].enabled = true;
-            animators[0].Play(animatorName, 0, 0f);
-            animators[0].speed = 0.2f;
-        }
-
-        Animator firstAnimator = FindObjectOfType<TileManager>().activeTiles[0].GetComponent<Animator>();
-        if (firstAnimator != null)
-        {
-            float animLength = firstAnimator.GetCurrentAnimatorStateInfo(0).length;
-            if (Time.time - firstAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= animLength)
-            {
-                //animators[0].enabled = false;
-            }
-        }*/
-
         if (Input.GetMouseButton(0))
         {
             float mouseX = Input.mousePosition.x / Screen.width * 2 - 1;
