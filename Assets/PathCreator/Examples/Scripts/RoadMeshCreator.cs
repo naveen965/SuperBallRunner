@@ -121,7 +121,7 @@ namespace PathCreation.Examples {
         void AssignMeshComponents () {
 
             if (meshHolder == null) {
-                meshHolder = new GameObject ("Road Mesh Holder");
+                meshHolder = FindObjectOfType<PathCreator>().gameObject;
             }
 
             meshHolder.transform.rotation = Quaternion.identity;

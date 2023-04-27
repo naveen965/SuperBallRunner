@@ -10,21 +10,17 @@ namespace PathCreation.Examples {
     public class GeneratePathExample : MonoBehaviour {
 
         public bool closedLoop = false;
-        public bool isSpawn = false;
         public float zSpawn = 0f;
         public float tileLength;
         public GameObject waypoint;
         public GameObject waypointsPerant;
-        public GameObject ball;
         public float spawnRange = 10f;
 
         private List<Transform> waypoints = new List<Transform>();
 
         void Start () 
         {
-            isSpawn = true;
-
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 6; i++)
             {
                 SpawnWaypoint();
             }
@@ -41,7 +37,7 @@ namespace PathCreation.Examples {
             
         }
 
-        public IEnumerator spawnObj()
+        public void spawnObj()
         {
             SpawnWaypoint();
 
@@ -51,8 +47,6 @@ namespace PathCreation.Examples {
                 BezierPath bezierPath = new BezierPath(waypoints, closedLoop, PathSpace.xyz);
                 GetComponent<PathCreator>().bezierPath = bezierPath;
             }
-
-            yield return new WaitForSeconds(5f);
 
             DeleteWaypoint(waypoints[0]);
         }
