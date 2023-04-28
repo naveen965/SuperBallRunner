@@ -11,10 +11,10 @@ namespace PathCreation.Examples {
 
         public bool closedLoop = false;
         public float zSpawn = 0f;
-        public float tileLength;
+        public float tileLength = 25f;
         public GameObject waypoint;
         public GameObject waypointsPerant;
-        public float spawnRange = 10f;
+        public float spawnRange = 3f;
 
         private List<Transform> waypoints = new List<Transform>();
 
@@ -45,6 +45,8 @@ namespace PathCreation.Examples {
             {
                 // Create a new bezier path from the waypoints.
                 BezierPath bezierPath = new BezierPath(waypoints, closedLoop, PathSpace.xyz);
+                RoadMeshCreator roadMeshCreator = new RoadMeshCreator();
+
                 GetComponent<PathCreator>().bezierPath = bezierPath;
             }
 
