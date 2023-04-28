@@ -23,6 +23,8 @@ namespace PathCreation.Examples {
 
                 while (dst < path.length) {
                     Vector3 point = path.GetPointAtDistance (dst);
+                    point.y += 0.5f;
+                    point.x += -3f;
                     Quaternion rot = path.GetRotationAtDistance (dst);
                     Instantiate (prefab, point, rot, holder.transform);
                     dst += spacing;

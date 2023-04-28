@@ -121,7 +121,7 @@ namespace PathCreation.Examples {
         void AssignMeshComponents () {
 
             if (meshHolder == null) {
-                meshHolder = FindObjectOfType<PathCreator>().gameObject;
+                meshHolder = new GameObject("Road Mesh Holder");
             }
 
             meshHolder.transform.rotation = Quaternion.identity;
@@ -150,6 +150,5 @@ namespace PathCreation.Examples {
                 meshRenderer.sharedMaterials[0].mainTextureScale = new Vector3 (1, textureTiling);
             }
         }
-
     }
 }
