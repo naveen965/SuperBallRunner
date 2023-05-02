@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using UnityEditor;
 using UnityEngine;
 
 namespace PathCreation.Examples {
@@ -14,6 +15,7 @@ namespace PathCreation.Examples {
         public float tileLength = 25f;
         public GameObject waypoint;
         public GameObject waypointsPerant;
+        public GameObject path;
         public float spawnRange = 3f;
 
         private List<Transform> waypoints = new List<Transform>();
@@ -30,12 +32,16 @@ namespace PathCreation.Examples {
                 BezierPath bezierPath = new BezierPath (waypoints, closedLoop, PathSpace.xyz);
                 GetComponent<PathCreator> ().bezierPath = bezierPath;
             }
+
+            Selection.activeGameObject = path.gameObject;
         }
 
         void Update ()
         {
             
         }
+
+
 
         public void spawnObj()
         {
